@@ -1,0 +1,7 @@
+1.0.1:
+    - 'First version of Sync'
+    - create_lessons_table.php
+    - create_students_table.php
+1.0.2:
+    - 'Added pivot table for students x lessons. Added unit tests.'
+    - create_ls_pivot_table.php

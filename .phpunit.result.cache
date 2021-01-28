@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":298:{a:2:{s:7:"defects";a:2:{s:55:"Cjkpl\Sync\Tests\Models\PivotTest::testModelsAreCreated";i:4;s:44:"Cjkpl\Sync\Tests\Models\PivotTest::testPivot";i:4;}s:5:"times";a:2:{s:55:"Cjkpl\Sync\Tests\Models\PivotTest::testModelsAreCreated";d:0.375;s:44:"Cjkpl\Sync\Tests\Models\PivotTest::testPivot";d:0.133;}}}
