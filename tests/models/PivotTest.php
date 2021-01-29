@@ -28,7 +28,10 @@ class PivotTest extends PluginTestCase
         $s = Student::first();
         $l = Lesson::first();
 
-        $s->lessons()->sync($l->id);
-        $s->lessons()->sync($l->id);
+        $s->lessons()->sync([$l->id]);
+        $s->lessons()->sync([$l->id]);
+
+        //expect one lesson attached to student
+        self::assertEquals(1, $s->lessons()->count());
     }
 }
