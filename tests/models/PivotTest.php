@@ -43,9 +43,36 @@ class PivotTest extends PluginTestCase
         // ... but when we try to re-use the original model, it fails
         // this fails $s->fresh('lessons');
         // this also fails $s = Student::find($sid);
-        
+        // $s->flushDuplicateCache();
         $v = $s->lessons()->where('id',$l->id)->first()->pivot->visits;
         self::assertEquals($new_v, $v, 'expect \'visits\' column contain 2');
+    }
+
+    public function testSyncReadSync()
+    {
+        // create one lesson and one student
+        $s = Student::create([]);
+        $l = Lesson::create([]);
+
+        $s->lessons()->syncWithoutDetaching([$l->id]);
+
+        $tracker = $s->lessons()->where('id', $l->id)->first()->pivot->toArray();
+
+        $success = true;
+        $message = '';
+
+        try {
+            $s->lessons()->syncWithoutDetaching([$l->id, $tracker]);
+        } catch ( Exception $exception ) {
+            $success = false;
+            $message = $exception->getMessage();
+        }
+
+        //expect one lesson attached to student
+        self::assertTrue($success, 'Exception thrown while syncWithoutDetaching: ' . $message);
+
+        Student::truncate();
+        Lesson::truncate();
     }
 
 }

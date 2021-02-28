@@ -50,10 +50,8 @@ class Plugin extends PluginBase
      */
     public function registerComponents()
     {
-        return []; // Remove this line to activate
-
         return [
-            'Cjkpl\Sync\Components\MyComponent' => 'myComponent',
+            'Cjkpl\Sync\Components\SyncMe' => 'syncMe',
         ];
     }
 
