@@ -63,7 +63,8 @@ class Lesson extends Model
         'students' => [
             'Cjkpl\Sync\Models\Student',
             'table' => 'cjkpl_sync_lessons_students',
-            'pivot' => ['p_created_at','p_updated_at','visits']
+            'pivot' => ['visits'],
+            'timestamps' => true
         ]
     ];
 }
